@@ -7,7 +7,7 @@
 
 //////////////////////////////////////////////////////////////////////////
 // 멤버 함수 아님!
-string CStringToString(CString cstr)
+string FileManager::CStringToString(CString cstr)
 {
 	char cpResult[200];
 
@@ -24,7 +24,7 @@ string CStringToString(CString cstr)
 	return cpResult;
 }
 
-CString StringToCString(string str)
+CString FileManager::StringToCString(string str)
 {
 	CString strResult;
 
@@ -56,7 +56,7 @@ boolean FileManager::SaveAsCsv()
 {
 	PhoneBook *CPhoneBook = PhoneBook::getInstance();
 
-	CString strPath = _T("C:\\Users\\kjh0121\\source\\repos\\Project1\\PhoneBookGUI\\마이다스주소록_20180214.csv");
+	CString strPath = _T("C:\\Users\\kjh0121\\source\\repos\\Project1\\PhoneBookGUI\\media\\마이다스주소록_20180214.csv");
 
 	CString strStatus;
 
@@ -76,11 +76,8 @@ boolean FileManager::SaveAsCsv()
 		file << CStringToString(CPhoneBook->m_CaPerson.at(i)->GetName()) << ',' << CStringToString(CPhoneBook->m_CaPerson.at(i)->GetPhoneNumber())
 			<< ',' << CStringToString(CPhoneBook->m_CaPerson.at(i)->GetTitle()) << ',' << CStringToString(CPhoneBook->m_CaPerson.at(i)->GetJob());
 		file << '\n';
-
-		strStatus.Format(_T("진행 중 %d"), i); // 진행 상황 기능추가
 	}
 #pragma warning(pop)
-
 
 	if (file.fail())  //만약 bad() 함수가 실패 하면..
 	{
@@ -96,9 +93,8 @@ boolean FileManager::LoadAsCsv()
 {
 	PhoneBook *CPhoneBook = PhoneBook::getInstance();
 
-	CString strPath = _T("C:\\Users\\kjh0121\\source\\repos\\Project1\\PhoneBookGUI\\마이다스주소록_20180214.csv");
+	CString strPath = _T("C:\\Users\\kjh0121\\source\\repos\\Project1\\PhoneBookGUI\\media\\마이다스주소록_20180214.csv");
 
-	CString strStatus;
 	CString strName;
 	CString strPhoneNumber;
 	CString strTitle;
@@ -129,23 +125,6 @@ boolean FileManager::LoadAsCsv()
 			strJob = StringToCString(row[1]);
 			strTitle = StringToCString(row[2]);
 			strPhoneNumber = StringToCString(row[3]);
-
-			strStatus += _T("[ ");
-			strStatus += strName;
-			strStatus += _T(" ]  ");
-
-			strStatus += _T("[ ");
-			strStatus += strJob;
-			strStatus += _T(" ]  ");	
-
-			strStatus += _T("[ ");
-			strStatus += strTitle;
-			strStatus += _T(" ]  ");	
-
-			strStatus += _T("[ ");
-			strStatus += strPhoneNumber;
-			strStatus += _T(" ]");
-			// 기능추가 -> 여기에 진행 상황을 위에 EDIT TEXT에 띄우고 싶었음ㅠ
 
 			CPhoneBook->m_CaPerson.push_back(new Person(CPhoneBook->m_AutoIncId++, strName, strPhoneNumber, strTitle, strJob));
 		}

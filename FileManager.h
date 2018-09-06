@@ -15,5 +15,6 @@ public:
 	vector<string> csv_read_row(istream &file, char delimiter);
 
 private:
-
+	string CStringToString(CString cstr);
+	CString StringToCString(string str);
 };
