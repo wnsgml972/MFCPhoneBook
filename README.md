@@ -22,7 +22,7 @@
 
 * PhoneBookDlg
 
-![PhoneBookDlg](/media/PhoneBookDlg.png)
+![PhoneBookDlg](/media/PhoneBookDlg1.png)
 
 
 <br/>
