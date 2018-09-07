@@ -211,7 +211,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\PhoneBookGUI.rc2" />
-    <None Include="마이다스주소록_20180214.csv" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\PhoneBookGUI.ico" />

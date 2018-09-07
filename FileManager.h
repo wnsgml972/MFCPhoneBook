@@ -12,7 +12,7 @@ public:
 	void LoadAsJson();
 	boolean SaveAsCsv();
 	boolean LoadAsCsv();
-	vector<string> csv_read_row(istream &file, char delimiter);
+	vector<string> CsvReadRow(istream &file, char cDelimiter);
 
 private:
 	string CStringToString(CString cstr);

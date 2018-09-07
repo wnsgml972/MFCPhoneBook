@@ -113,7 +113,7 @@ boolean FileManager::LoadAsCsv()
 
 	while (file.good()) //eof, bad, fail 함수가 거짓을 반환할 때까지
 	{
-		vector<string> row = csv_read_row(file, ',');
+		vector<string> row = CsvReadRow(file, ',');
 
 		if (!row[0].find("#")) //만약 csv 파일 안에 # 문자가 있을경우
 		{
@@ -136,44 +136,45 @@ boolean FileManager::LoadAsCsv()
 
 }
 
-vector<string> FileManager::csv_read_row(istream &file, char delimiter)
+vector<string> FileManager::CsvReadRow(istream &file, char cDelimiter)
 {
-	stringstream ss;
-	bool inquotes = false;
+	stringstream StringStream;
+	bool bInquotes = false;  // 인용구, 큰 따옴표 같은 것 제거
 	vector<string> row;//relying on RVO
 
 	while (file.good())
 	{
-		char c = file.get();
-		if (!inquotes && c == '"')
+		char cGetFileChar = file.get();
+
+		if (!bInquotes && cGetFileChar == '"')
 		{
-			inquotes = true;
+			bInquotes = true;
 		}
-		else if (inquotes && c == '"')
+		else if (bInquotes && cGetFileChar == '"')
 		{
 			if (file.peek() == '"')
 			{
-				ss << (char)file.get();
+				StringStream << (char)file.get();
 			}
 			else
 			{
-				inquotes = false;
+				bInquotes = false;
 			}
 		}
-		else if (!inquotes && c == delimiter)
+		else if (!bInquotes && cGetFileChar == cDelimiter) // split 문자 만나면 stream 데이터를 벡터에 넣고 초기화
 		{
-			row.push_back(ss.str());
-			ss.str("");
+			row.push_back(StringStream.str());
+			StringStream.str("");
 		}
-		else if (!inquotes && (c == '\r' || c == '\n'))
+		else if (!bInquotes && (cGetFileChar == '\r' || cGetFileChar == '\n')) // 다음 줄을 만나도 stream 데이터를 벡터에 넣고 초기화
 		{
 			if (file.peek() == '\n') { file.get(); }
-			row.push_back(ss.str());
+			row.push_back(StringStream.str());
 			return row;
 		}
 		else
 		{
-			ss << c;
+			StringStream << cGetFileChar;
 		}
 	}
 
