@@ -1,2 +1,10 @@
-﻿  FileManager.cpp
+﻿  stdafx.cpp
+  FileManager.cpp
+  Person.cpp
+  PhoneBook.cpp
+  PhoneBookGUI.cpp
+  PhoneBookGUIDlg.cpp
+  SubBasicGUIDlg.cpp
+  SubEditGUIDlg.cpp
+  코드를 생성하고 있습니다...
   PhoneBookGUI.vcxproj -> C:\Users\kjh0121\source\repos\Project1\Debug\PhoneBookGUI.exe
