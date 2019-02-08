@@ -22,18 +22,18 @@
 
 * PhoneBookDlg
 
-![PhoneBookDlg](/media/PhoneBookDlg1.png)
+![PhoneBookDlg](/media/PhoneBookDlg.png)
 
 
 <br/>
 
 * SubBasicDlg
 
-![SubBasicDlg](/media/SubBasicDlg1.png)
+![SubBasicDlg](/media/SubBasicDlg.png)
 
 
 <br/>
 
 * SubEditDlg
 
-![SubEditDlg](/media/SubEditDlg1.png)
+![SubEditDlg](/media/SubEditDlg.png)
