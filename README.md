@@ -1,11 +1,11 @@
 # MFCPhoneBook
 
 > MFC 교육용
-> 1. fork하여 feature/start branch에서 자신의 Github ID로 Branch를 만들어 개발 시작
-> 2. Issue 생성
-> 3. 궁금증 및 발생할 문제들, 기록할 것들 Issue에 기록
-> 4. Commit 시 Issue 번호를 걸어 Commit `Commit Title(Issue-Num)`
-> 5. Pull Request를 통해 Code Review 진행 (자신의 Github ID branch -> wnsgml972의 자신의 Github ID)
+> 1. 따로 개인 프로젝트로 생성
+> 2. 해당 기능을 모두 포함한 전화번호부 구현
+> 3. Issue 단위로 개발 구성 할 것
+> 4. Master branch 말고 feature branch를 만들어 Git-Flow 기반의 코드리뷰를 진행 (기존에는 GitHub-Flow 기반의 코드리뷰 진행했었음)
+> 5. Reference (https://github.com/JaeYeopHan/tip-archive/issues/13)
 
 ## 기능
 
